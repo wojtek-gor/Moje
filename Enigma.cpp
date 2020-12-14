@@ -20,10 +20,20 @@ void wirnikIp(int znak);
 int main()
 {
     char znak;
-    int i;
+    int i, a;
     cout<<"Uruchomiles enigme."<<endl;
     cout<<"Ustaw pierwszy wirnik(wpisz znak od a do z): ";
-    cin>>znak;
+    while(true)
+    {
+        znak=getch();
+        if(znak>='a' && znak<='z')
+        {
+            break;
+        }
+        else
+            cout<<endl<<"Zly znak, wprowadz poprawne dane: ";
+    }
+    cout<<znak<<endl;
     for(i=0;i<26;i++)
     {
         if(tab[i]==znak)
@@ -33,7 +43,17 @@ int main()
         }
     }
     cout<<"Ustaw drugi wirnik(wpisz znak od a do z): ";
-    cin>>znak;
+    while(true)
+    {
+        znak=getch();
+        if(znak>='a' && znak<='z')
+        {
+            break;
+        }
+        else
+            cout<<endl<<"Zly znak, wprowadz poprawne dane: ";
+    }
+    cout<<znak<<endl;
     for(i=0;i<26;i++)
     {
         if(tab[i]==znak)
@@ -43,7 +63,17 @@ int main()
         }
     }
     cout<<"Ustaw trzeci wirnik(wpisz znak od a do z): ";
-    cin>>znak;
+    while(true)
+    {
+        znak=getch();
+        if(znak>='a' && znak<='z')
+        {
+            break;
+        }
+        else
+            cout<<endl<<"Zly znak, wprowadz poprawne dane: ";
+    }
+    cout<<znak<<endl;
     cout<<"Znak kropki wylacza enigme"<<endl;
     for(i=0;i<26;i++)
     {
@@ -56,8 +86,16 @@ int main()
     cout<<"Rozpocznij szyfrowanie wiadomosci: "<<endl;
     while(true)
     {
-        nowa:
+        while(true)
+    {
         znak=getch();
+        if(znak>='a' && znak<='z' || znak=='.')
+        {
+            break;
+        }
+        else
+            cout<<'\r'<<"Zly znak, wprowadz poprawne dane: "<<endl;
+    }
         WirnikI++;
         if(WirnikI%26==0)
             WirnikII++;
