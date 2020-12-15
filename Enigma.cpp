@@ -1,6 +1,6 @@
 #include<iostream>
 #include<conio.h>
-//odwzorowanie pierwszej wersji enigmy sil londowych
+//odwzorowanie pierwszej wersji enigmy sil ladowych
 using namespace std;
 int WirnikI=0;//ustawienie wirników zalerzy od u¿ytkownika
 int WirnikII=0;//Moze przyjac jedna z 26 pozycji
