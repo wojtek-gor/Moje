@@ -234,8 +234,8 @@ int main()
             }
         }
     }
-    cout<<"Zamykam enigme, wcisnij dowolny klawisz.";
-    getch();
+    cout<<"Zamykam enigme.";
+    Sleep(3000);
     return 0;
 }
 void wirnikI(int znak, int WirnikI, int WirnikII, int WirnikIII, int tabwirI[], int tabwirII[], int tabwirIII[], int tabwirobr[], char tab[])//wirniki enigmy
