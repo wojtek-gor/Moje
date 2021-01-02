@@ -27,43 +27,46 @@ int main()
     cout<<"Wybierz pierwszy wirnik: ";
     while(true)
     {
-        cin>>ustwir;
+        ustwir=getch()%48;
         if(ustwir>=1 && ustwir<=4)
         {
+            cout<<ustwir<<endl;
             ustwir=ustwir*100;
             break;
         }
         else
         {
-            cout<<"Blad, wprowadz poprawne dane: ";
+            cout<<ustwir<<endl<<"Blad, wprowadz poprawne dane: ";
         }
     }
     cout<<"Wybierz drugi wirnik: ";
     while(true)
     {
-        cin>>wybor;
+        wybor=getch()%48;
         if(ustwir/100!=wybor && wybor>=1 && wybor<=4)
         {
+            cout<<wybor<<endl;
             ustwir=ustwir+wybor*10;
             break;
         }
         else
         {
-            cout<<"Blad, wprowadz poprawne dane: ";
+            cout<<wybor<<endl<<"Blad, wprowadz poprawne dane: ";
         }
     }
     cout<<"Wybierz trzeci wirnik: ";
     while(true)
     {
-       cin>>wybor;
+       wybor=getch()%48;
        if((ustwir-ustwir%100)/100!=wybor && (ustwir%100)/10!=wybor && wybor>=1 && wybor<=4 )
        {
+           cout<<wybor<<endl;
            ustwir=ustwir+wybor;
            break;
        }
        else
        {
-           cout<<"Blad, wprowadz poprawne dane: ";
+           cout<<wybor<<endl<<"Blad, wprowadz poprawne dane: ";
        }
     }
     cout<<"Ustaw pierwszy wirnik(wpisz znak od a do z): ";
@@ -231,6 +234,8 @@ int main()
             }
         }
     }
+    cout<<"Zamykam enigme, wcisnij dowolny klawisz.";
+    getch();
     return 0;
 }
 void wirnikI(int znak, int WirnikI, int WirnikII, int WirnikIII, int tabwirI[], int tabwirII[], int tabwirIII[], int tabwirobr[], char tab[])//wirniki enigmy
@@ -294,6 +299,6 @@ void wirnikIp(int znak, int WirnikI, int WirnikII, int tabwirI[], char tab[])
             break;
     }
     cout<<'\r'<<tab[i];
-    Sleep(2000);
+    Sleep(1000);
     cout<<'\r'<<" "<<'\r';
 }
