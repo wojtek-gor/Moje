@@ -1,0 +1,254 @@
+
+import java.util.Scanner;
+
+public class zadanie1 {
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Ile ma sie krecic: ");
+        int liczba = scan.nextInt();
+
+        int suma =0;
+        for(int i=0; i<liczba; i++)
+        {
+            Scanner scann = new Scanner(System.in);
+
+            System.out.println("Podaj liczbe: ");
+            int liczba2 = scan.nextInt();
+             suma = suma + liczba2;
+        }
+
+        System.out.println(suma);
+    }
+}
+
+
+class b {
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Ile ma sie krecic: ");
+        int liczba = scan.nextInt();
+
+        int suma =1;
+        for(int i=0; i<liczba; i++)
+        {
+            Scanner scann = new Scanner(System.in);
+
+            System.out.println("Podaj liczbe: ");
+            int liczba2 = scan.nextInt();
+            suma = suma * liczba2;
+        }
+
+        System.out.println(suma);
+    }
+}
+
+
+class c {
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Ile ma sie krecic: ");
+        int liczba = scan.nextInt();
+
+        int suma =0;
+        for(int i=0; i<liczba; i++)
+        {
+            Scanner scann = new Scanner(System.in);
+
+            System.out.println("Podaj liczbe: ");
+            int liczba2 = scan.nextInt();
+            suma = suma + Math.abs(liczba2);
+        }
+
+        System.out.println(suma);
+    }
+}
+
+class d {
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Ile ma sie krecic: ");
+        int liczba = scan.nextInt();
+
+        double suma =0;
+        for(int i=0; i<liczba; i++)
+        {
+            Scanner scann = new Scanner(System.in);
+
+            System.out.println("Podaj liczbe: ");
+            int liczba2 = scan.nextInt();
+            suma = suma + Math.sqrt(Math.abs((liczba2)));
+        }
+
+        System.out.println(suma);
+    }
+}
+
+
+
+class e {
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Ile ma sie krecic: ");
+        int liczba = scan.nextInt();
+
+        int suma =1;
+        for(int i=0; i<liczba; i++)
+        {
+            Scanner scann = new Scanner(System.in);
+
+            System.out.println("Podaj liczbe: ");
+            int liczba2 = scan.nextInt();
+            suma = suma * Math.abs(liczba2);
+        }
+
+        System.out.println(suma);
+    }
+}
+
+
+
+class f {
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Ile ma sie krecic: ");
+        int liczba = scan.nextInt();
+
+        int suma =0;
+        for(int i=0; i<liczba; i++)
+        {
+            Scanner scann = new Scanner(System.in);
+
+            System.out.println("Podaj liczbe: ");
+            int liczba2 = scan.nextInt();
+            suma = suma + (liczba2 * liczba2);
+        }
+
+        System.out.println(suma);
+    }
+}
+
+
+class g {
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Ile ma sie krecic: ");
+        int liczba = scan.nextInt();
+
+        int suma = 1;
+        int suma2 = 0;
+        for(int i=0; i<liczba; i++)
+        {
+            Scanner scann = new Scanner(System.in);
+
+            System.out.println("Podaj liczbe: ");
+            int liczba2 = scan.nextInt();
+            suma = suma * liczba2;
+            suma2 = suma2 + liczba2;
+        }
+
+        System.out.println(suma);
+        System.out.println(suma2);
+    }
+}
+
+
+class h {
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Ile ma sie krecic: ");
+        int liczba = scan.nextInt();
+
+        double suma =0;
+        double liczba3 = -1;
+
+        for(int i=1; i<=liczba; i++)
+        {
+            Scanner scann = new Scanner(System.in);
+
+            System.out.println("Podaj liczbe: ");
+            int liczba2 = scan.nextInt();
+
+            double liczba4 = i + liczba;
+            double power = Math.pow(liczba3, liczba4);
+
+            suma = suma + power * liczba2;
+        }
+
+        System.out.println(suma);
+    }
+}
+
+class i {
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Ile ma sie krecic: ");
+        int liczba = scan.nextInt();
+
+        double suma =0;
+        int liczba5 =1;
+        double liczba3 = -1;
+
+        for(int i=1; i<=liczba; i++)
+        {
+            Scanner scann = new Scanner(System.in);
+
+            System.out.println("Podaj liczbe: ");
+            int liczba2 = scan.nextInt();
+
+            double liczba4 = i;
+            liczba5 =liczba5 * i ;
+            double power = Math.pow(liczba3, liczba4);
+
+            suma = suma + (power * liczba2)/liczba5;
+        }
+
+        System.out.println(suma);
+    }
+}
+
+import java.util.Scanner;
+
+public class Zadanie2 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("tyle ma sie krecic: ");
+        int liczba = scan.nextInt();
+        int liczba2 =0;
+        for(int i=1; i<=liczba; i++)
+        {
+            Scanner scann = new Scanner(System.in);
+            System.out.println("Podaj liczbe: ");
+            liczba2 = scan.nextInt();
+            System.out.println(liczba2);
+
+        }
+
+
+    }
+}
