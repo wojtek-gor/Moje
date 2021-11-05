@@ -1,0 +1,86 @@
+import java.util.Scanner;
+import java.util.Random;
+
+
+
+
+public class kolos {
+    public static void main(String[] args) {
+//        wypisz(stworz_tablice());
+          wypisz(powieksz_ostatnia_jedynke(stworz_tablice()));
+
+    }
+
+    public static double [] stworz_tablice()
+    {   Random generator = new Random();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Podaj rozmiar tablicy: ");
+        int rozmiar_tablicy = scan.nextInt();
+        double [] tab = new double[rozmiar_tablicy];
+
+        for(int i =0; i < rozmiar_tablicy; i++)
+        {
+            tab[i] = generator.nextInt(5)+1;
+            if(tab[i] == 3)
+            {
+                tab[i] = 2;
+            }
+
+            if(tab[i] == 4)
+            {
+                tab[i] = 1;
+            }
+
+        }
+
+        return tab;
+
+
+    }
+
+    public static void wypisz(double [] tab)
+    {
+        for(int i =0; i < tab.length; i++)
+        {
+            System.out.println(tab[i]);
+        }
+    }
+
+
+    public static int pozycja_ostatniej_jedynki(double[] tab)
+    {   int licznik = 0;
+        for(int i =0; i < tab.length; i++)
+        { licznik = licznik +1;
+
+
+
+
+            if(tab[i] == 1)
+            {
+                return  licznik;
+            }
+
+
+        }
+        return licznik;
+
+
+    }
+
+    public static double [] powieksz_ostatnia_jedynke(double [] tab)
+    {
+        pozycja_ostatniej_jedynki(tab);
+        for(int i = 0; i < tab.length; i++)
+        {
+            if( i == pozycja_ostatniej_jedynki(tab))
+            {
+               tab[i] = 0;
+            }
+        }
+
+        return tab;
+    }
+
+
+
+}
