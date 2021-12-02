@@ -1,0 +1,174 @@
+from typing import Any, List, Callable, Union
+
+
+class LinkedList:
+    value: Any
+    next: 'Node'
+
+
+class Queue:
+    _storage: LinkedList
+
+    def __init__(self) -> None:
+        self._storage = None
+
+    def __len__(self) -> int:
+        nowy = self._storage
+        licznik = 0
+        while True:
+            if nowy is None:
+                return licznik
+            nowy = nowy.next
+            licznik += 1
+
+    def __str__(self) -> str:
+        nowy = self._storage
+        stos = ''
+        if nowy is None:
+            return stos
+        stos = str(nowy.value)
+        nowy = nowy.next
+        while nowy is not None:
+            stos = str(nowy.value) + ', ' + stos
+            nowy = nowy.next
+        return stos
+
+    def pusta(self) -> bool:
+        if self._storage is None:
+            return True
+        return False
+
+    def peek(self) -> Any:
+        nowy = self._storage
+        while nowy.next is not None:
+            nowy = nowy.next
+        return nowy.value
+
+    def enqueue(self, element: Any) -> None:
+        nowy = LinkedList()
+        nowy.next = self._storage
+        nowy.value = element
+        self._storage = nowy
+
+    def dequeue(self) -> Any:
+        nowy = self._storage
+        nowy2 = self._storage
+        while nowy.next is not None:
+            nowy = nowy.next
+        while nowy2.next != nowy and nowy != nowy2:
+            nowy2 = nowy2.next
+        nowy2.next = None
+        if nowy == nowy2:
+            ele = nowy.value
+            self._storage = None
+            return ele
+        return nowy.value
+
+
+class TreeNode:
+    value: Any
+    children: List['TreeNode']
+
+    def __init__(self) -> None:
+        self.value = None
+        self.children = None
+
+    def __str__(self) -> str:
+        return self.value
+
+    def is_leaf(self) -> bool:
+        if self.children is None:
+            return True
+        return False
+
+    def add(self, child: 'TreeNode') -> None:
+        if self.children is None:
+            self.children = [child]
+        else:
+            self.children.append(child)
+
+    def for_each_deep_first(self, visit: Callable[['TreeNode'], None]) -> None:
+        visit(self.value)
+        if self.is_leaf():
+            return
+        for i in self.children:
+            i.for_each_deep_first(visit)
+
+    def for_each_level_order(self, visit: Callable[['TreeNode'], None]) -> None:
+        visit(self.value)
+        if self.is_leaf():
+            return
+        lista = Queue()
+        lista.enqueue(self.children)
+        while lista.pusta() is False:
+            element = lista.dequeue()
+            for i in element:
+                visit(i.value)
+                if i.is_leaf():
+                    continue
+                lista.enqueue(i.children)
+
+    def search(self, value: Any) -> Union['TreeNode', None]:
+        if self.value == value:
+            return self
+        lista = Queue()
+        lista.enqueue(self.children)
+        while lista.pusta() is False:
+            element = lista.dequeue()
+            for i in element:
+                if i.value == value:
+                    return i
+                if i.is_leaf():
+                    continue
+                lista.enqueue(i.children)
+
+
+class Tree:
+    root: TreeNode
+
+    def __init__(self) -> None:
+        self.TreeNode = None
+
+    def add(self, value: Any, parent_name: Any) -> None:
+        wezel = self.TreeNode.search(parent_name)
+        nowy = TreeNode()
+        nowy.value = value
+        wezel.add(nowy)
+
+    def for_each_level_order(self, visit: Callable[['TreeNode'], None]) -> None:
+        self.TreeNode.for_each_level_order(visit)
+
+    def for_each_deep_first(self, visit: Callable[['TreeNode'], None]) -> None:
+        self.TreeNode.for_each_deep_first(visit)
+
+
+korzen = Tree()
+drzewko = TreeNode()
+korzen.TreeNode = drzewko
+drzewko2 = TreeNode()
+drzewko3 = TreeNode()
+drzewko4 = TreeNode()
+drzewko5 = TreeNode()
+drzewko6 = TreeNode()
+drzewko7 = TreeNode()
+drzewko8 = TreeNode()
+drzewko9 = TreeNode()
+drzewko.value = "F"
+drzewko2.value = "B"
+drzewko3.value = "G"
+drzewko4.value = "A"
+drzewko5.value = "D"
+drzewko6.value = "I"
+drzewko7.value = "C"
+drzewko8.value = "E"
+drzewko9.value = "H"
+drzewko.add(drzewko2)
+drzewko.add(drzewko3)
+drzewko2.add(drzewko4)
+drzewko2.add(drzewko5)
+drzewko5.add(drzewko7)
+drzewko5.add(drzewko8)
+drzewko3.add(drzewko6)
+drzewko6.add(drzewko9)
+korzen.add("J", "C")
+korzen.for_each_level_order(print)
