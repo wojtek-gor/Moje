@@ -48,8 +48,18 @@ class BinaryNode:
         if self.right_child is not None:
             self.right_child.traverse_pre_order(visit)
 
-    def right_line(self, zwrot: list[Any], level=0) -> None:
-        if level>len(zwrot)-1:
+    def show(self, level=0) -> None:
+        if self.right_child is not None:
+            self.right_child.show(level+1)
+        if level == 0:
+            print(' ', self.value)
+        else:
+            print(' ' * 4 * level + '-->', self.value)
+        if self.left_child is not None:
+            self.left_child.show(level+1)
+
+    def right_line(self, zwrot: List[Any], level=0) -> None:
+        if level > len(zwrot)-1:
             zwrot.append(self.value)
         if self.right_child is not None:
             self.right_child.right_line(zwrot, level+1)
@@ -71,16 +81,10 @@ class BinaryTree:
     def traverse_pre_order(self, visit: Callable[[Any], None]) -> None:
         self.root.traverse_pre_order(visit)
 
-    def printT(self, node: BinaryNode, level=0) -> None:
-        if node != None:
-            self.printT(node.right_child, level + 1)
-            if level == 0:
-                print(' ', node.value)
-            else:
-                print(' ' * 4 * level + '->', node.value)
-            self.printT(node.left_child, level + 1)
+    def show(self) -> None:
+        self.root.show()
 
-def right_line(tree: BinaryTree) -> list[BinaryNode]:
+def right_line(tree: BinaryTree) -> List[BinaryNode]:
     lista = []
     tree.root.right_line(zwrot=lista)
     return lista
@@ -94,6 +98,6 @@ tree.root.left_child.add_left_child(4)
 tree.root.left_child.add_right_child(5)
 tree.root.left_child.left_child.add_left_child(8)
 tree.root.left_child.left_child.add_right_child(9)
-tree.printT(tree.root)
+tree.show()
 print(right_line(tree))
 
