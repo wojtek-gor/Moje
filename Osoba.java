@@ -1,53 +1,47 @@
-package pl.edu.uwm.obiektowe.s151629.kolo1;
-
-
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.lang.*;
+import java.util.Objects;
 
-public class Osoba {
-    Osoba(String imie,String nazwisko,int rokUrodzenia, int miesiacUrodzenia, int dzienUrodzenia){
-        this.imie=imie;
-        this.nazwisko=nazwisko;
-        dataUrodzenia = LocalDate.of(rokUrodzenia,miesiacUrodzenia,dzienUrodzenia);
-        obWiek();
+public class Osoba implements Cloneable, Comparable<Osoba>{
+    Osoba(String nazwisko, int rokUrodzenia, int miesiacUrodzenia, int dzienUrodzenia){
+        this.nazwosko=nazwisko;
+        dataUrodzenia=dataUrodzenia.of(rokUrodzenia,miesiacUrodzenia,dzienUrodzenia);
     }
-    private void obWiek(){
-        wiek=LocalDate.now().compareTo(dataUrodzenia);
+    @Override
+    public String toString()
+    {
+        return getClass().getName()+" [ "+nazwosko+" "+dataUrodzenia+" ]";
     }
-    public String Imie(){
-        return imie;
+    @Override
+    public int compareTo(Osoba obiekt)
+    {
+        if(this.nazwosko.compareTo(obiekt.nazwosko)==0)
+        {
+            if(this.dataUrodzenia.equals(obiekt.dataUrodzenia))
+                return 0;
+            else
+                return this.dataUrodzenia.compareTo(obiekt.dataUrodzenia);
+        }
+        return this.nazwosko.compareTo(obiekt.nazwosko);
     }
-    public String Nazwisko(){
-        return nazwisko;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Osoba osoba = (Osoba) o;
+        return Objects.equals(nazwosko, osoba.nazwosko) &&
+                Objects.equals(dataUrodzenia, osoba.dataUrodzenia);
     }
-    public LocalDate DataUrodzenia(){
+
+    public String getNazwosko() {
+        return nazwosko;
+    }
+
+    public LocalDate getDataUrodzenia() {
         return dataUrodzenia;
     }
-    public int Wiek(){
-        return LocalDate.now().compareTo(dataUrodzenia);
-    }
-    void noweImie(String imie){
-        this.imie=imie;
-    }
-    void noweNazwisko(String nazwisko){
-        this.nazwisko=nazwisko;
-    }
-    void nowaDataUrodzenia(int rokUrodzenia, int miesiacUrodzenia, int dzienUrodzenia){
-        LocalDate nowa = LocalDate.of(rokUrodzenia,miesiacUrodzenia,dzienUrodzenia);
-        if(LocalDate.now().compareTo(nowa)<0)
-        {
-            System.out.println("Blad, podano niepoprawne dane.");
-            return;
-        }
-        dataUrodzenia = nowa;
-    }
-    public String toString(){
-        return "Osoba "+ imie +" "+nazwisko+" urodzona "+dataUrodzenia+", wiek "+ wiek;
-    }
-    private String imie;
-    private String nazwisko;
-    private LocalDate dataUrodzenia;
-    private int wiek;
 
+    private String nazwosko;
+    private LocalDate dataUrodzenia;
 }
