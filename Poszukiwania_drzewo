@@ -1,0 +1,25 @@
+from typing import Any, Union
+
+class BinaryNode:
+    value: Any
+    left_child: 'BinaryNode'
+    right_child: 'BinaryNode'
+
+    def __init__(self, value: Any) -> None:
+        self.value = value
+        self.left_child = None
+        self.right_child = None
+
+    def min(self) -> Union['BinaryNode', None]:
+        if self.left_child is None:
+            return self
+        return self.left_child.min()
+
+class BinarySearchTree:
+    root: BinaryNode
+
+    def insert(self, value: Any) -> None:
+
+
+    def _insert(self, node: BinaryNode, value: Any) -> BinaryNode:
+        
