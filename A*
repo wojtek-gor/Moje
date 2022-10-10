@@ -1,0 +1,55 @@
+#include<iostream>
+#include <cmath>
+ using namespace std;
+ double ile_do_mety(double x, double y, double koniec_x, double koniec_y, int krok);
+ void odwiedzamy(double* tab_od, int* tab2_zw, int* tab_ro);
+ int main()
+ {
+    int tab[6][6];
+    double tab_odw[6][6];
+    int tab_zw[6][6];
+    int tab_rod[6][6];
+    int start_x=0;
+    int start_y=5;
+    int meta_x=5;
+    int meta_y=5;
+
+    for(int i=0;i<=5;i++)
+    {
+        for(int j=0;j<=5;j++)
+        {
+            tab[i][j]=0;
+            tab_odw[i][j]=0;
+            tab_zw[i][j]=0;
+            tab_rod[i][j]=-1;
+        }
+    }
+    tab[0][5]=1;
+    tab[3][3]=5;
+    tab[4][3]=5;
+    tab[5][3]=5;
+    tab[3][4]=5;
+    odwiedzamy(&tab_odw,&tab_zw,&tab_rod);
+    for(int i=0;i<=5;i++)
+    {
+        for(int j=0;j<=5;j++)
+        {
+            tab_odw[i][j]=0;
+        }
+        cout<<"\n";
+    }
+
+
+    return 0;
+ }
+ double ile_do_mety(double x, double y, double koniec_x, double koniec_y,int krok)
+ {
+     x=abs(x-5);
+     koniec_x=abs(koniec_x-5);
+     return krok+sqrt(pow(x-koniec_x,2)+pow(y-koniec_y,2));
+ }
+ void odwiedzamy(double* tab_od, int* tab2_zw, int* tab_ro)
+ {
+     *tab_od[0][0]=ile_do_mety(5,1,5,5,2);
+     return;
+ }
